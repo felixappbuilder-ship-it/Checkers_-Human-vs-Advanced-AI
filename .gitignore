@@ -1,0 +1,10 @@
+# Ignore compiled/executable files
+*.exe
+*.dll
+*.obj
+*.pyc
+__pycache__/
+
+# Ignore logs and temp files
+*.log
+*.tmp

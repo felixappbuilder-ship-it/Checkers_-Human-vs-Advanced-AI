@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkers: Human vs Advanced AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>♟️ Checkers: Human vs Advanced AI</h1>
+            <div class="game-controls">
+                <div class="control-group">
+                    <div class="mode-selector">
+                        <label>Game Mode:</label>
+                        <select id="gameMode">
+                            <option value="offline">Offline AI</option>
+                            <option value="online">Online AI (ChatGPT)</option>
+                        </select>
+                        <div class="online-status offline" id="onlineStatus">
+                            <span class="status-dot"></span>
+                            <span>Offline</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <div class="difficulty-selector">
+                        <label>AI Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                            <option value="expert">Expert</option>
+                            <option value="chatgpt">ChatGPT (Online)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <div class="game-info">
+                        <div class="turn-indicator" id="turnIndicator">Your Turn (Red)</div>
+                        <div class="score-board">
+                            <span class="score score-red" id="scoreRed">You: 12</span>
+                            <span class="score score-black" id="scoreBlack">AI: 12</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <button id="resetButton">New Game</button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- MAIN GAME AREA -->
+        <main class="game-area">
+            <div class="board-container">
+                <div class="game-board" id="gameBoard">
+                    <!-- JavaScript will populate this -->
+                </div>
+            </div>
+            
+            <div class="game-sidebar">
+                <div class="strategy-hints">
+                    <h3>🧠 AI Strategy Analysis</h3>
+                    <div id="hintContent">The AI is evaluating positions...</div>
+                </div>
+                
+                <div class="api-config">
+                    <h3>🔑 OpenAI API Configuration</h3>
+                    <div class="api-input">
+                        <input type="password" id="apiKey" placeholder="Enter your OpenAI API key" />
+                        <button id="saveApiKey">Save Key</button>
+                    </div>
+                    <p class="api-note">Your API key is stored locally and never sent to our servers</p>
+                </div>
+            </div>
+        </main>
+        
+        <div class="game-status" id="gameStatus"></div>
+        
+        <div class="ai-thinking" id="aiThinking">
+            <div class="thinking-text" id="thinkingText">AI is thinking...</div>
+            <div class="thinking-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="ai-insight" id="aiInsight"></div>
+        </div>
+    </div>
+
+    <!-- Simple sound elements (can be empty files) -->
+    <audio id="moveSound" preload="auto"><source src="sounds/move.wav" type="audio/wav"></audio>
+    <audio id="captureSound" preload="auto"><source src="sounds/capture.wav" type="audio/wav"></audio>
+    <audio id="kingSound" preload="auto"><source src="sounds/king.wav" type="audio/wav"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
